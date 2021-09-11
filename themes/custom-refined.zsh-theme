@@ -49,7 +49,7 @@ git_dirty() {
 # Display information about the current repository
 #
 repo_information() {
-    echo "%F{45}${vcs_info_msg_0_%%/.} %F{226}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
+    echo "%F{10}${vcs_info_msg_0_%%/.} %F{226}$vcs_info_msg_1_`git_dirty` $vcs_info_msg_2_%f"
 }
 
 # Displays the exec time of the last command if set threshold was exceeded
@@ -71,13 +71,13 @@ preexec() {
 #
 precmd() {
     vcs_info # Get version control info before we start outputting stuff
-    print -P "$(repo_information) %F{yellow}$(cmd_exec_time)%f"
+    print -P "$(repo_information) %F{255}$(cmd_exec_time)%f"
     unset cmd_timestamp #Reset cmd exec time.
 }
 
 # Define prompts
 #
-PROMPT="%F{201}❯%f " # Disable display a red prompt char on failure
+PROMPT="%F{226}=>%f " # Disable display a red prompt char on failure
 RPROMPT="%F{8}${SSH_TTY:+%n@%m}%f"    # Display username if connected via SSH
 
 # ------------------------------------------------------------------------------
